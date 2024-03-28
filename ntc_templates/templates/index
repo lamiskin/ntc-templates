@@ -480,7 +480,7 @@ cisco_xr_show_interface_brief.textfsm, .*, cisco_xr, sh[[ow]] int[[erface]] br[[
 cisco_xr_admin_show_platform.textfsm, .*, cisco_xr, adm[[in]] sh[[ow]] pla[[tform]]
 cisco_xr_show_install_active.textfsm, .*, cisco_xr, sh[[ow]] install active
 cisco_xr_show_ip_bgp_summary.textfsm, .*, cisco_xr, sh[[ow]] ip b[[gp]] s[[ummary]]
-cisco_xr_show_ipv4_interface.textfsm, .*, cisco_xr, sh[[ow]] ipv4 int[[erface]]
+cisco_xr_show_ipv4_interface.textfsm, .*, cisco_xr, sh[[ow]] ip[[v4]] int[[erface]]
 cisco_xr_show_ipv6_neighbors.textfsm, .*, cisco_xr, sh[[ow]] ipv6 ne[[ighbors]]
 cisco_xr_show_isis_neighbors.textfsm, .*, cisco_xr, sh[[ow]] isis ne[[ighbors]]
 cisco_xr_show_lldp_neighbors.textfsm, .*, cisco_xr, sh[[ow]] lld[[p]] neig[[hbors]]
@@ -492,7 +492,6 @@ cisco_xr_show_processes_cpu.textfsm, .*, cisco_xr, sh[[ow]] proc[[esses]] c[[pu]
 cisco_xr_show_version_brief.textfsm, .*, cisco_xr, sh[[ow]] ver[[sion]] br[[ief]]
 cisco_xr_show_bfd_sessions.textfsm, .*, cisco_xr, sh[[ow]] bf[[d]] sess[[ions]]
 cisco_xr_show_drops_np_all.textfsm, .*, cisco_xr, sh[[ow]] drops np all
-cisco_xr_show_ip_interface.textfsm, .*, cisco_xr, sh[[ow]] ip int[[erface]]
 cisco_xr_show_pim_neighbor.textfsm, .*, cisco_xr, sh[[ow]] pi[[m]] neigh[[bor]]
 cisco_xr_show_interfaces.textfsm, .*, cisco_xr, sh[[ow]] inte[[rfaces]]
 cisco_xr_show_inventory.textfsm, .*, cisco_xr, sh[[ow]] inv[[entory]]
