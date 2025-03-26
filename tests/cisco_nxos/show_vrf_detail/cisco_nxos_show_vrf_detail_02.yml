@@ -1,0 +1,32 @@
+---
+parsed_sample:
+  - address_family:
+      - "ipv4"
+      - "ipv6"
+    default_rd: "172.21.12.21:104"
+    fwd_id: []
+    id: "2"
+    max_routes: ""
+    mid_threshold: ""
+    name: "BUILDING"
+    state: ""
+    table_id:
+      - "0x2"
+      - "0x1E000002"
+    table_status: []
+    vpn_id: ""
+  - address_family:
+      - "ipv4"
+      - "ipv6"
+    default_rd: "172.21.12.21:115"
+    fwd_id: []
+    id: "3"
+    max_routes: ""
+    mid_threshold: ""
+    name: "COMMERCIAL"
+    state: ""
+    table_id:
+      - "0x3"
+      - "0x1E000003"
+    table_status: []
+    vpn_id: ""

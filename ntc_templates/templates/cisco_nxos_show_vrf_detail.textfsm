@@ -12,14 +12,46 @@ Value List TABLE_STATUS (\S+)
 
 Start
   ^VRF-Name:\s+${NAME},\s+VRF-ID:\s+${ID},\s+State:\s+${STATE} -> VRF
+  ^VRF\s+${NAME}\s+\(VRF\s+Id\s+\=\s+${ID}\);\s+default\s+RD\s+${DEFAULT_RD};\s+default\s+VPNID\s+(<not set>|${VPN_ID}) -> VRF
   ^. -> Error
 
 VRF
   ^VRF-Name:\s+${NAME},\s+VRF-ID:\s+${ID},\s+State:\s+${STATE}
+  ^VRF\s+${NAME}\s+\(VRF\s+Id\s+\=\s+${ID}\);\s+default\s+RD\s+${DEFAULT_RD};\s+default\s+VPNID\s+(<not set>|${VPN_ID})
   ^\s+VPNID:\s+${VPN_ID}
   ^\s+RD:\s+${DEFAULT_RD}
   ^\s+Max\s+Routes:\s+${MAX_ROUTES}\s+Mid\-Threshold:\s+${MID_THRESHOLD}
   ^\s+Table\-ID:\s+${TABLE_ID},\s+AF:\s+${ADDRESS_FAMILY},\s+Fwd-ID:\s+${FWD_ID},\s+State:\s+${TABLE_STATUS}
+  ^\s+New\s+CLI\s+format,\s+supports\s+multiple\s+address-families
+  ^\s+Old\s+CLI\s+format,\s+supports\s+.*$$
+  ^\s+Description:\s+.*
+  ^\s+Internal\s+VRF\s+for
+  ^\s+No\s+interfaces
+  ^\s+Flags:\s+\S+
+  ^\s*Interfaces:+s*$$ -> Interfaces
+  ^\s+No\s+Export\s+VPN\s+route-target\s+(stitching\s+)?communities
+  ^\s+Export\s+VPN\s+route-target\s+communities -> RT
+  ^\s+No\s+Import\s+VPN\s+route-target\s+(stitching\s+)?communities
+  ^\s+No\s+(global\s+)?(import|export)\s+route-map
+  ^\s+VRF\s+label\s+distribution\s+protocol:.*$$
+  ^\s+VRF\s+label\s+allocation\s+mode:.*$$
+  ^Address\s+family\s+ipv[46]\s+(\S+\s+)?not\s+active
+  ^Address\s+family\s+${ADDRESS_FAMILY}\s+(\S+\s+)?\(Table\s+ID\s+=\s+${TABLE_ID}\):
+  ^Address\s+family\s+${ADDRESS_FAMILY}\s+(\S+\s+)?\(Table\s+ID\s+=\s+(\d+\s+)?\(?${TABLE_ID}\)\)?:
   ^\s*$$ -> Record
   ^$$ -> Record
+  ^. -> Error
+
+Interfaces
+  ^\s+\S+.*$$
+  ^Address\s+family\s+ipv[46]\s+(\S+\s+)?not\s+active -> VRF
+  ^Address\s+family\s+${ADDRESS_FAMILY}\s+(\S+\s+)?\(Table\s+ID\s+=\s+${TABLE_ID}\): -> VRF
+  ^Address\s+family\s+${ADDRESS_FAMILY}\s+(\S+\s+)?\(Table\s+ID\s+=\s+(\d+\s+)?\(?${TABLE_ID}\)\)?: -> VRF
+  ^. -> Error
+
+RT
+  ^\s+RT:.*$$
+  ^\s+Import\s+VPN\s+route-target\s+communities -> RT
+  ^\s+No\s+import\s+route-map -> VRF
+  ^\s+No\s+Export\s+VPN -> VRF
   ^. -> Error
