@@ -14,6 +14,7 @@ parsed_sample:
     neighbor_name: "SW-MGMT.cisco.com"
     neighbor_port_id: "Et0/1"
     platform: ""
+    power_allocated: ""
     power_class: ""
     power_device_type: ""
     power_pair: ""

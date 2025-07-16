@@ -20,6 +20,7 @@ Value POWER_DEVICE_TYPE (\S+)
 Value POWER_PRIORITY (\S+)
 Value POWER_SOURCE (\S+)
 Value POWER_REQUESTED (\d+)
+Value POWER_ALLOCATED (\d+)
 
 Start
   ^.*not advertised
@@ -68,6 +69,8 @@ Start
   ^Load\s+for\s+
   ^Time\s+source\s+is
   ^Local\s+Intf\s+service\s+instance:\s+\-
+  ^PoE\+\s+Power-via-MDI\s+TLV: -> MDI
+  ^UPOE\/UPOE\+\s+Power-via-MDI\s+TLV: -> MDI
   ^.*$$ -> Error
 
 GetDescription
@@ -100,4 +103,17 @@ Med
   ^\s*Total\s+entries\s+displayed -> Record
   ^\s*-+\s*$$ -> Continue.Record
   ^\s*-+\s*$$ -> Start
+  ^.* -> Error
+
+MDI
+  ^\s+Power\s+Pair:\s+${POWER_PAIR}
+  ^\s+Power\s+Class:\s+Class\s+${POWER_CLASS}
+  ^\s+Power\s+Device\s+Type:\s+Type\s+${POWER_DEVICE_TYPE}
+  ^\s+Power\s+Source:\s+${POWER_SOURCE}
+  ^\s+Power\s+Priority:\s+${POWER_PRIORITY}
+  ^\s+Power\s+Requested:\s+${POWER_REQUESTED}
+  ^\s+Power\s+Allocated:\s+${POWER_ALLOCATED}
+  ^\s*-+\s*$$ -> Continue.Record
+  ^\s*-+\s*$$ -> Start
+  ^\s*$$
   ^.* -> Error

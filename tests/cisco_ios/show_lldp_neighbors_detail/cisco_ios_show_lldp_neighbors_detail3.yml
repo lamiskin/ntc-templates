@@ -13,6 +13,7 @@ parsed_sample:
     neighbor_name: "SEPC8F9F9D61BC2"
     neighbor_port_id: "C8F9F9D61BC2:P1"
     platform: "CP-7962G"
+    power_allocated: ""
     power_class: ""
     power_device_type: ""
     power_pair: ""
