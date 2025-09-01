@@ -1,0 +1,16 @@
+mgmt0 is down (Link not connected)
+  Hardware: GigabitEthernet, address: 00fc.bab8.89c0 (bia 00fc.bab8.89c0)
+  Internet Address is 172.16.140.60/24
+  MTU 1500 bytes, BW 1000000 Kbit, DLY 10 usec
+  reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA
+  Full-duplex, auto-speed
+  EtherType is 0x0000
+  1 minute input rate 0 bits/sec 0 packets/sec
+  1 minute output rate 0 bits/sec 0 packets/sec
+  Rx
+    0 unicast packets 0 multicast packets 0 broadcast packets
+    0 input packets 0 bytes
+  Tx
+    0 unicast packets 0 multicast packets 0 broadcast packets
+    0 output packets 0 bytes
