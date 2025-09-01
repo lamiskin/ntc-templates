@@ -118,7 +118,7 @@ Start
   ^\s+(Ha\s+)?input\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps;\s+output\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps\s*$$
   ^\s+Members\s+in\s+this\s+channel:\s+
   ^\s+No\s+members
-  ^\s+Management\s+transceiver:
+  ^\s+Management\s+transceiver:?
   ^\s+Active\s+connector:
   ^\s+Configured\s+Media-type:
   ^\s+vPC\s+Status:\s+\S+,\s+vPC\s+number:\s+\d+
