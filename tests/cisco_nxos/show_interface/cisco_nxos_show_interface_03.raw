@@ -1,0 +1,30 @@
+    Management transceiver is present
+    type is 1000base-LH
+    name is CISCO-AVAGO
+    part number is SFCT-5798PZ
+    revision is 0000
+    serial number is AGC1152U4SM
+    nominal bitrate is 1200 MBit/sec
+    Link length supported for 9/125um fiber is 10 km
+    cisco id is 3
+    cisco extended id number is 4
+
+mgmt0 is down (Link not connected)
+admin state is up,
+  Hardware: GigabitEthernet, address: 00fc.ba5c.aabb (bia 00fc.ba5c.ccdd)
+  MTU 1500 bytes, BW 0 Kbit, DLY 10 usec
+  reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, medium is broadcast
+  auto-duplex, auto-speed
+  Auto-Negotiation is turned on
+  Auto-mdix is turned off
+  EtherType is 0x0000
+  1 minute input rate 0 bits/sec, 0 packets/sec
+  1 minute output rate 0 bits/sec, 0 packets/sec
+  Rx
+    0 input packets 0 unicast packets 0 multicast packets
+    0 broadcast packets 0 bytes
+  Tx
+    0 output packets 0 unicast packets 0 multicast packets
+    0 broadcast packets 0 bytes
+

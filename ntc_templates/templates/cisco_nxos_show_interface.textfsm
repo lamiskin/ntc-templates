@@ -118,7 +118,8 @@ Start
   ^\s+(Ha\s+)?input\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps;\s+output\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps\s*$$
   ^\s+Members\s+in\s+this\s+channel:\s+
   ^\s+No\s+members
-  ^\s+Management\s+transceiver:?
+  ^\s+Management\s+transceiver\s+is -> IGNOREMGMT
+  ^\s+Management\s+transceiver:
   ^\s+Active\s+connector:
   ^\s+Configured\s+Media-type:
   ^\s+vPC\s+Status:\s+\S+,\s+vPC\s+number:\s+\d+
@@ -126,3 +127,16 @@ Start
   ^\s+\d+\s+multicast\s+frames\s+\d+\s+compressed\s*$$
   ^\s+\d+\s+out_carrier_errors\s*$$
   ^. -> Error
+
+IGNOREMGMT
+  ^\s+type\s+is
+  ^\s+name\s+is
+  ^\s+part\s+number\s+is
+  ^\s+revision\s+is
+  ^\s+serial\s+number\s+is
+  ^\s+nominal\s+bitrate\s+is
+  ^\s+Link\s+length\s+supported
+  ^\s+cisco\s+id\s+is
+  ^\s+cisco\s+extended\s+id\s+number\s+is
+  ^\s*$$ -> Start
+  ^. -> Error IGNOREMGMT
