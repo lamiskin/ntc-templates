@@ -57,6 +57,8 @@ Value TX_PAUSE (\d+)
 
 Start
   ^\S+\s+is.+ -> Continue.Record
+  ^\s+[rR][xX]$$ -> RXSTATS
+  ^\s+[tT][xX]$$ -> TXSTATS
   ^${INTERFACE}\s+is\s+${LINK_STATUS},\sline\sprotocol\sis\s${ADMIN_STATE}$$
   ^${INTERFACE}\s+is\s+${LINK_STATUS}$$
   ^admin\s+state\s+is\s+${ADMIN_STATE},
@@ -67,12 +69,11 @@ Start
   ^\s+Internet\s+Address\s+is\s+${IP_ADDRESS}\/${PREFIX_LENGTH}
   ^\s+Port\s+mode\s+is\s+${MODE}
   ^\s+${DUPLEX},\s+${SPEED}(,\s+media\s+type\s+is\s+${MEDIA_TYPE})?\s*$$
-  ^\s+MTU\s+${MTU}.*BW\s+${BANDWIDTH}.*DLY\s+${DELAY}
+  ^\s+MTU\s+${MTU}.*BW\s+${BANDWIDTH}(.*DLY\s+${DELAY})?
+  ^\s+MTU\s+${MTU}\s+bytes
   ^\s+Encapsulation\s+${ENCAPSULATION},?(\s+Virtual\s+LAN,\s+Vlan\s+ID\s+${VLAN_ID},)?
   ^\s+${INPUT_PACKETS}\s+input\s+packets\s+\d+\s+bytes\s*$$
   ^\s+${OUTPUT_PACKETS}\s+output\s+packets\s+\d+\s+bytes\s*$$
-  ^\s+${INPUT_PACKETS}\s+input\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
-  ^\s+${OUTPUT_PACKETS}\s+output\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
   ^\s+${INPUT_PACKETS}\s+packets\s+input\s+\d+\s+bytes\s*$$
   ^\s+${OUTPUT_PACKETS}\s+packets\s+output\s+\d+\s+bytes\s+${UNDERRUN}\s+underruns\s*$$
   ^\s+input:\s+${INPUT_PACKETS}\s+pkts,\s+\d+\s+bytes\s+-\s+output:\s+${OUTPUT_PACKETS}\s+pkts,\s+\d+\s+bytes\s*$$
@@ -85,14 +86,9 @@ Start
   ^\s+${WATCHDOG}\s+watchdog\s+${BAD_ETYPE_DROP}\s+bad\s+etype\s+drop\s+${BAD_PROTO_DROP}\s+bad\s+proto\s+drop\s+${INTERFACE_DOWN_DROP}\s+if\s+down\s+drop\s*$$
   ^\s+${DRIBBLE}\s+input\s+with\s+dribble\s+${INPUT_DISCARDS}\s+input\s+discard\s*$$
   ^\s+${RX_PAUSE}\s+Rx\s+pause\s*$$
-  ^\s+${STOMPED_CRC}\s+Stomped\s+CRC\s*$$
-  ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+packets\s+${STORM_SUPPRESSION_BYTES}\s+storm\s+suppression\s+bytes\s*$$
   ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+packets\s+\d+\s+storm\s+suppression\s+packets\s*$$
-  ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+pa(ckets)?\s+Encapsulation\s+\S+,\s+medium\s+is\s+\S+
-  ^\s+${RUNTS}\s+runts\s+${GIANTS}\s+giants\s+${CRC}\s+CRC(/FCS)?\s+${NO_BUFFER}\s+no\s+buffer\s*$$
   # TX
   ^\s+${TX_JUMBO_PACKETS}\s+jumbo\s+packets\s*$$
-  ^\s+${OUTPUT_ERRORS}\s+output\s+errors?\s+${COLLISIONS}\s+collision\s+${DEFERRED}\s+deferred\s+${LATE_COLLISIONS}\s+late\s+collision\s*$$
   ^\s+${OUTPUT_ERRORS}\s+output\s+errors\s+${COLLISIONS}\s+collisions\s+\d+\s+fifo\s*$$
   ^\s+${LOST_CARRIER}\s+lost\s+carrier\s+${NO_CARRIER}\s+no\s+carrier\s+${BABBLE}\s+babble\s+${OUTPUT_DISCARDS}\s+output\s+discard\s*$$
   ^\s+${TX_PAUSE}\s+Tx\s+pause\s*$$
@@ -106,13 +102,11 @@ Start
   ^\s+\d+\s+interface\s+resets\s*$$
   ^\s+Load-Interval\s+
   ^\s+L3\s+((in|out)\s+)?Switched:\s*$$
-  ^\s+[RT][Xx]\s*$$
   ^\s+Dedicated\s+Interface\s*$$
   ^\s+Belongs\s+to\s+
   ^\s+admin\s+fec\s+state\s+is\s+\S+,\s+oper\s+fec\s+state\s+is\s+\S+\s*$$
   ^\s+Keepalive\s+
   ^\s+ARP\s+type:\s+\S+\s*$$
-  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+bytes\s*$$
   ^\s+ucast:\s+\d+\s+pkts,\s+\d+\s+bytes(\s+-\s+mcast:\s+\d+\s+pkts,\s+\d+\s+bytes)?\s*$$
   ^\s+\d+\s+unicast\s+packets\s+\d+\s+multicast\s+packets\s+\d+\s+broadcast\s+packets\s*$$
   ^\s+(Ha\s+)?input\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps;\s+output\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps\s*$$
@@ -126,7 +120,10 @@ Start
   ^\s+Input\s+flow-control\s+is\s+\S+,\s+Port\s+mode\s+is\s+\S+\s*$$
   ^\s+\d+\s+multicast\s+frames\s+\d+\s+compressed\s*$$
   ^\s+\d+\s+out_carrier_errors\s*$$
-  ^. -> Error
+  ^\s+Transport\s+protocol\s+is\s+in\s+VRF
+  ^\s+Tunnel\s+(source|destination)
+  ^\s+Peer\s+IP\s+\S+,\s+VC\s+ID\s+\d+
+  ^. -> Error START
 
 IGNOREMGMT
   ^\s+type\s+is
@@ -140,3 +137,42 @@ IGNOREMGMT
   ^\s+cisco\s+extended\s+id\s+number\s+is
   ^\s*$$ -> Start
   ^. -> Error IGNOREMGMT
+
+RXSTATS
+  ^\s+\d+\s+unicast\s+packets\s+\d+\s+multicast\s+packets
+  ^\s+\d+\s+bytes\s+${BANDWIDTH_INPUT_RATE}\s+bits/sec\s+${PACKET_INPUT_RATE}\s+packets/sec
+  ^\s+Total:\s+${INPUT_PACKETS}\s+pkts,\s+\d+\s+bytes
+  ^\s+${INPUT_PACKETS}\s+input\s+packets\s+\d+\s+bytes
+  ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+packets\s+\d+\s+storm\s+suppression\s+packets
+  ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+packets\s+${STORM_SUPPRESSION_BYTES}\s+storm\s+suppression\s+bytes
+  ^\s+${RUNTS}\s+runts\s+${GIANTS}\s+giants\s+${CRC}\s+CRC(/FCS)?\s+${NO_BUFFER}\s+no\s+buffer
+  ^\s+${INPUT_ERRORS}\s+input\s+error\s+${SHORT_FRAME}\s+short\s+frame\s+${OVERRUN}\s+overrun\s+${UNDERRUN}\s+underrun\s+${IGNORED}\s+ignored
+  ^\s+${WATCHDOG}\s+watchdog\s+${BAD_ETYPE_DROP}\s+bad\s+etype\s+drop\s+${BAD_PROTO_DROP}\s+bad\s+proto\s+drop\s+${INTERFACE_DOWN_DROP}\s+if\s+down\s+drop
+  ^\s+${DRIBBLE}\s+input\s+with\s+dribble\s+${INPUT_DISCARDS}\s+input\s+discard
+  ^\s+${STOMPED_CRC}\s+Stomped\s+CRC\s*$$
+  ^\s+${RX_PAUSE}\s+Rx\s+pause
+  ^\s+${INPUT_PACKETS}\s+input\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
+  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+bytes\s*$$
+  ^\s+[tT][xX]$$ -> TXSTATS
+  ^. -> Error RXSTATS
+
+TXSTATS
+  ^\s+\d+\s+unicast\s+packets\s+\d+\s+multicast\s+packets
+  ^\s+\d+\s+bytes\s+${BANDWIDTH_OUTPUT_RATE}\s+bits/sec\s+${PACKET_OUTPUT_RATE}\s+packets/sec
+  ^\s+Total:\s+${OUTPUT_PACKETS}\s+pkts,\s+\d+\s+bytes
+  ^\s+${OUTPUT_PACKETS}\s+output\s+packets\s+\d+\s+bytes
+  ^\s+${TX_JUMBO_PACKETS}\s+jumbo\s+packets
+  ^\s+${OUTPUT_ERRORS}\s+output\s+error\s+${COLLISIONS}\s+collision\s+${DEFERRED}\s+deferred\s+${LATE_COLLISIONS}\s+late\s+collision
+  ^\s+${LOST_CARRIER}\s+lost\s+carrier\s+${NO_CARRIER}\s+no\s+carrier\s+${BABBLE}\s+babble\s+${OUTPUT_DISCARDS}\s+output\s+discard
+  ^\s+${TX_PAUSE}\s+Tx\s+pause
+  ^\s+${OUTPUT_PACKETS}\s+output\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
+  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+bytes\s*$$
+  ^\s+${OUTPUT_ERRORS}\s+output\s+errors?\s+${COLLISIONS}\s+collision\s+${DEFERRED}\s+deferred\s+${LATE_COLLISIONS}\s+late\s+collision\s*$$
+  ^\s+\d+\s+interface\s+resets\s*$$
+  ^\s+admin\s+fec\s+state\s+is\s+\S+,\s+oper\s+fec\s+state\s+is\s+\S+\s*$$
+  ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+pa(ckets)?\s+Encapsulation\s+\S+,\s+medium\s+is\s+\S+
+  ^\s+Management\s+transceiver: -> Start
+  ^\s*\S+\s+is\s+\S+ -> Continue.Record
+  ^${INTERFACE}\s+is\s+${LINK_STATUS}$$ -> Start
+  ^\s*$$ -> Start
+  ^. -> Error TXSTATS
