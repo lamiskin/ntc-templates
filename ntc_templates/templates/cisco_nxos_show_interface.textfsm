@@ -65,7 +65,7 @@ Start
   ^admin\s+state\s+is\s+${ADMIN_STATE}
   ^\s+Hardware(:|\s+is)\s+${HARDWARE_TYPE},\s+address(:|\s+is)\s+${MAC_ADDRESS}(.*bia\s+${BIA})*
   ^\s+Hardware(:|\s+is)\s+${HARDWARE_TYPE}
-  ^\s+Description:\s+${DESCRIPTION}\s*$$
+  ^\s+(Port\s+)?[Dd]escription(:|\s+is)\s+${DESCRIPTION}\s*$$
   ^\s+Internet\s+Address\s+is\s+${IP_ADDRESS}\/${PREFIX_LENGTH}
   ^\s+Port\s+mode\s+is\s+${MODE}
   ^\s+${DUPLEX},\s+${SPEED}(,\s+media\s+type\s+is\s+${MEDIA_TYPE})?\s*$$
@@ -98,7 +98,7 @@ Start
   ^\s+(Beacon|EtherType|Rate\s+mode|Switchport\s+monitor)\s+is\s+
   ^\s+Input\s+flow-control\s+is\s+\S+,\s+output\s+flow-control\s+is\s+\S+\s*$$
   ^\s+EEE\s+\(efficient-ethernet\)\s+
-  ^\s+Last\s+clearing\s+of\s+"show\s+interface"\s+counters\s+
+  ^\s+[Ll]ast\s+clearing\s+of\s+"show\s+interface"\s+counters\s+
   ^\s+\d+\s+interface\s+resets\s*$$
   ^\s+Load-Interval\s+
   ^\s+L3\s+((in|out)\s+)?Switched:\s*$$
@@ -108,7 +108,7 @@ Start
   ^\s+Keepalive\s+
   ^\s+ARP\s+type:\s+\S+\s*$$
   ^\s+ucast:\s+\d+\s+pkts,\s+\d+\s+bytes(\s+-\s+mcast:\s+\d+\s+pkts,\s+\d+\s+bytes)?\s*$$
-  ^\s+\d+\s+unicast\s+packets\s+\d+\s+multicast\s+packets\s+\d+\s+broadcast\s+packets\s*$$
+  ^\s+\d+\s+unicast\s+packets\s+\d+\s+multicast\s+packets(\s+\d+\s+broadcast\s+packets)?\s*$$
   ^\s+(Ha\s+)?input\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps;\s+output\s+rate\s+\S+\s+\w?bps,\s+\S+\s+\w?pps\s*$$
   ^\s+Members\s+in\s+this\s+channel:\s+
   ^\s+No\s+members
@@ -120,6 +120,17 @@ Start
   ^\s+Input\s+flow-control\s+is\s+\S+,\s+Port\s+mode\s+is\s+\S+\s*$$
   ^\s+\d+\s+multicast\s+frames\s+\d+\s+compressed\s*$$
   ^\s+\d+\s+out_carrier_errors\s*$$
+  ^\s+VFC\s+not\s+bound
+  ^\s+Port\s+(WWN|vsan)
+  ^\s+Admin\s+port\s+mode
+  ^\s+snmp\s+link\s+state
+  ^\s+Current\s+counters\s+not\s+available
+  ^\s+Receive\s+data\s+field\s+[Ss]ize\s+is
+  ^\s+\d+\s+frames\s+(in|out)put,\s+\d+\s+bytes
+  ^\s+\d+\s+discards,\s+\d+\s+errors
+  ^\s+\d+\s+too\s+long,\s+\d+\s+too\s+short
+  ^\s+\d+\s+(in|out)put\s+OLS,\s+\d+\s+LRR,\s+\d+\s+NOS,\s+\d+\s+loop\s+inits
+  ^\s+Interface\s+last\s+changed
   ^\s+Transport\s+protocol\s+is\s+in\s+VRF
   ^\s+Tunnel\s+(source|destination)
   ^\s+Peer\s+IP\s+\S+,\s+VC\s+ID\s+\d+
