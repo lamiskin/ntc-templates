@@ -73,13 +73,13 @@ Start
   ^\s+MTU\s+${MTU}\s+bytes
   ^\s+Encapsulation\s+${ENCAPSULATION},?(\s+Virtual\s+LAN,\s+Vlan\s+ID\s+${VLAN_ID},)?
   ^\s+${INPUT_PACKETS}\s+input\s+packets\s+\d+\s+bytes\s*$$
-  ^\s+${OUTPUT_PACKETS}\s+output\s+packets\s+\d+\s+bytes\s*$$
   ^\s+${INPUT_PACKETS}\s+packets\s+input\s+\d+\s+bytes\s*$$
+  ^\s+${OUTPUT_PACKETS}\s+output\s+packets\s+\d+\s+bytes\s*$$
   ^\s+${OUTPUT_PACKETS}\s+packets\s+output\s+\d+\s+bytes\s+${UNDERRUN}\s+underruns\s*$$
   ^\s+input:\s+${INPUT_PACKETS}\s+pkts,\s+\d+\s+bytes\s+-\s+output:\s+${OUTPUT_PACKETS}\s+pkts,\s+\d+\s+bytes\s*$$
   ^\s+Last\s+link\s+flapped\s+${LAST_LINK_FLAPPED}\s*$$
-  ^\s+\d+\s+(second|minute)s?\s+input\s+rate\s+${BANDWIDTH_INPUT_RATE}\s+bits/sec,?\s+${PACKET_INPUT_RATE}\s+packets/sec
-  ^\s+\d+\s+(second|minute)s?\s+output\s+rate\s+${BANDWIDTH_OUTPUT_RATE}\s+bits/sec,?\s+${PACKET_OUTPUT_RATE}\s+packets/sec
+  ^\s+\d+\s+(second|minute)s?\s+input\s+rate\s+${BANDWIDTH_INPUT_RATE}\s+bits/sec(,?\s+${PACKET_INPUT_RATE}\s+packets/sec)?
+  ^\s+\d+\s+(second|minute)s?\s+output\s+rate\s+${BANDWIDTH_OUTPUT_RATE}\s+bits/sec(,?\s+${PACKET_OUTPUT_RATE}\s+packets/sec)?
   # RX
   ^\s+${INPUT_ERRORS}\s+input\s+errors?\s+${SHORT_FRAME}\s+short\s+frame\s+${OVERRUN}\s+overrun\s+${UNDERRUN}\s+underrun\s+${IGNORED}\s+ignored\s*$$
   ^\s+${INPUT_ERRORS}\s+input\s+errors\s+${SHORT_FRAME}\s+frame\s+${OVERRUN}\s+overrun\s+\d+\s+fifo\s*$$
@@ -87,6 +87,7 @@ Start
   ^\s+${DRIBBLE}\s+input\s+with\s+dribble\s+${INPUT_DISCARDS}\s+input\s+discard\s*$$
   ^\s+${RX_PAUSE}\s+Rx\s+pause\s*$$
   ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+packets\s+\d+\s+storm\s+suppression\s+packets\s*$$
+  ^\s+${CRC}\s+CRC,\s+\d+\s+unknown\s+class
   # TX
   ^\s+${TX_JUMBO_PACKETS}\s+jumbo\s+packets\s*$$
   ^\s+${OUTPUT_ERRORS}\s+output\s+errors\s+${COLLISIONS}\s+collisions\s+\d+\s+fifo\s*$$
@@ -163,7 +164,9 @@ RXSTATS
   ^\s+${STOMPED_CRC}\s+Stomped\s+CRC\s*$$
   ^\s+${RX_PAUSE}\s+Rx\s+pause
   ^\s+${INPUT_PACKETS}\s+input\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
-  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+bytes\s*$$
+  ^\s+${OUTPUT_PACKETS}\s+output\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
+  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+(bytes|packets/sec)\s*$$
+  ^\s+\d+\s+(second|minute)s?\s+input\s+rate\s+${BANDWIDTH_INPUT_RATE}\s+bits/sec(,\s+${PACKET_INPUT_RATE}\s+packets/sec)?
   ^\s+[tT][xX]$$ -> TXSTATS
   ^. -> Error RXSTATS
 
@@ -177,11 +180,12 @@ TXSTATS
   ^\s+${LOST_CARRIER}\s+lost\s+carrier\s+${NO_CARRIER}\s+no\s+carrier\s+${BABBLE}\s+babble\s+${OUTPUT_DISCARDS}\s+output\s+discard
   ^\s+${TX_PAUSE}\s+Tx\s+pause
   ^\s+${OUTPUT_PACKETS}\s+output\s+packets(\s+\d+\s+(unicast|multicast)+\s+packets){2}\s*$$
-  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+bytes\s*$$
+  ^\s+\d+\s+broadcast\s+packets\s+\d+\s+(bytes|packets/sec)\s*$$
   ^\s+${OUTPUT_ERRORS}\s+output\s+errors?\s+${COLLISIONS}\s+collision\s+${DEFERRED}\s+deferred\s+${LATE_COLLISIONS}\s+late\s+collision\s*$$
   ^\s+\d+\s+interface\s+resets\s*$$
   ^\s+admin\s+fec\s+state\s+is\s+\S+,\s+oper\s+fec\s+state\s+is\s+\S+\s*$$
   ^\s+${RX_JUMBO_PACKETS}\s+jumbo\s+pa(ckets)?\s+Encapsulation\s+\S+,\s+medium\s+is\s+\S+
+  ^\s+\d+\s+(second|minute)s?\s+output\s+rate\s+${BANDWIDTH_OUTPUT_RATE}\s+bits/sec(,\s+${PACKET_OUTPUT_RATE}\s+packets/sec)?
   ^\s+Management\s+transceiver: -> Start
   ^\s*\S+\s+is\s+\S+ -> Continue.Record
   ^${INTERFACE}\s+is\s+${LINK_STATUS}$$ -> Start
