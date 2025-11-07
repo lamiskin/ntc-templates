@@ -1,0 +1,22 @@
+---
+parsed_sample:
+  - default_rd: "172.11.22.33:111"
+    description: ""
+    id: "5"
+    intfs:
+      - "Lo930"
+      - "Vl31"
+      - "Vl930"
+      - "Tu4"
+      - "Tu21"
+    name: "EXPERIMENT"
+    table_address_family:
+      - "ipv4"
+      - "ipv6"
+    table_address_type:
+      - "unicast"
+      - "unicast"
+    table_id:
+      - "0x5"
+      - "0x1E000005"
+    vpn_id: "<not set>"

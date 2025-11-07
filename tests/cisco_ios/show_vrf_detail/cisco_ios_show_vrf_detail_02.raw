@@ -1,0 +1,34 @@
+VRF EXPERIMENT (VRF Id = 5); default RD 172.11.22.33:111; default VPNID <not set>
+  New CLI format, supports multiple address-families
+  Flags: 0x180C
+  Interfaces:
+    Lo930                    Vl31                     Vl930
+    Tu4                      Tu21
+Address family ipv4 unicast (Table ID = 0x5):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:12345:2221
+  Import VPN route-target communities
+    RT:12345:2222
+  Export VPN route-target stitching communities
+    RT:12345:2223
+  Import VPN route-target stitching communities
+    RT:12345:2224
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (Label 25)
+Address family ipv6 unicast (Table ID = 0x1E000005):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:12345:2225
+  Import VPN route-target communities
+    RT:12345:2226
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (No Label)
+Address family ipv4 multicast not active
+Address family ipv6 multicast not active

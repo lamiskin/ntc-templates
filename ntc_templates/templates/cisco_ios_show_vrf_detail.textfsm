@@ -10,22 +10,22 @@ Value List TABLE_ADDRESS_TYPE (\S+)
 
 Start
   ^VRF ${NAME}\s+\(VRF\s+Id\s+\=\s+${ID}\);\s+default\s+RD\s+${DEFAULT_RD};\s+default\s+VPNID\s+${VPN_ID}
-  ^\s*Interfaces: -> INTERFACES
-  ^\s+No\s*interfaces
+  ^\s+Interfaces: -> INTERFACES
+  ^\s+No\s+interfaces
   ^\s+Description:\s+${DESCRIPTION}\s*$$
-  ^\s+No\s*Export\s*VPN\s*route\-target communities
-  ^\s+No\s*Import\s*VPN\s*route\-target\s*communities
-  ^\s+No\s*import\s*route-map
-  ^\s+No\s*export\s*route-map
-  ^\s+VRF\s*label\s*distribution\s*protocol:\s*not\s*configured
-  ^\s+VRF\s*label\s*allocation\s*mode:
-  ^\s+vrf-conn-aggr\s*for\s*connected\s*and\s*BGP\s*aggregates\s*\(Label\s*516\)
-  ^\s*Address\s*family\s*\w+\s*not\s*active
-  ^\s+No\s*global\s*export\s*route\-map
-  ^\s+vrf-conn-aggr\s*for\s*connected\s*and\s*BGP\s*aggregates
-  ^\s+Export\s*VPN\s*route\-target\s*communities -> EXPORT
-  ^\s+Import\s*VPN\s*route\-target\s*communities -> IMPORT
-  ^\s*Address\s*family\s*\w+\s*\w+\s*not\s*active
+  ^\s+No\s+Export\s+VPN\s+route\-target\s+communities
+  ^\s+No\s+Import\s+VPN\s+route\-target\s+communities
+  ^\s+No\s+import\s+route\-map
+  ^\s+No\s+export\s+route\-map
+  ^\s+VRF\s+label\s+distribution\s+protocol:\s+not\s+configured
+  ^\s+VRF\s+label\s+allocation\s+mode:
+  ^\s+vrf-conn-aggr\s+for\s+connected\s+and\s+BGP\s+aggregates\s+\(Label\s+516\)
+  ^\s*Address\s+family\s+\w+\s+not\s+active
+  ^\s+No\s+global\s+export\s+route\-map
+  ^\s+vrf-conn-aggr\s+for\s+connected\s+and\s+BGP\s+aggregates
+  ^\s+Export\s+VPN\s+route\-target\s+communities -> EXPORT
+  ^\s+Import\s+VPN\s+route\-target\s+communities -> IMPORT
+  ^\s*Address\s+family\s+\w+\s+\w+\s+not\s+active
   ^Address\s+family\s+${TABLE_ADDRESS_FAMILY}\s+\(Table\s+ID\s+=\s+${TABLE_ID}\s+\(\w+\)\)\:
   ^Address\s+family\s+${TABLE_ADDRESS_FAMILY}\s+${TABLE_ADDRESS_TYPE}\s+\(Table ID\s+=\s+${TABLE_ID}\)\:
   ^\s+New\s+CLI\s+format\,\s+supports\s+multiple\s+address\-families
@@ -42,6 +42,7 @@ EXPORT
   ^\s+RT\:\S+\:\d+\s*$$
   ^\s+\S+\s+RT\:\S+\:\d+\s*$$
   ^\s+\S+\s+\S+\s+RT\:\S+\:\d+\s*$$
+  ^\s+Import.*stitching -> IMPORT
   ^\s+No\s*Import\s*VPN\s*route\-target\s*communities -> Start
   ^\s+Import\s*VPN\s*route\-target\s*communities -> IMPORT
   ^. -> Error EXPORT
@@ -52,6 +53,7 @@ IMPORT
   ^\s+RT\:\S+\:\d+\s*$$
   ^\s+\S+\s+RT\:\S+\:\d+\s*$$
   ^\s+\S+\s+\S+\s+RT\:\S+\:\d+\s*$$
+  ^\s+Export.*stitching -> EXPORT
   ^\s+No\s*import\s*route\-map -> Start
   ^.*route-map.* -> Start
   ^.*route-target.* -> Start
