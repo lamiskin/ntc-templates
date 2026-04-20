@@ -1,0 +1,135 @@
+------------------------------------------------
+Local Intf: Te1/1/4
+Local Intf service instance: -
+Chassis id: acbf.3581.ac85
+Port id: Gi7/5
+Port Description: T:L:K05:618-av01
+System Name: 407-as08.domain.com
+
+System Description:
+Cisco IOS Software, IOS-XE Software, Catalyst 4500 L3 Switch  Software (cat4500e-UNIVERSALK9-M), Version 03.07.02.E RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 22-J
+
+Time remaining: 106 seconds
+System Capabilities: B,R
+Enabled Capabilities: B,R
+Management Addresses:
+    IP: 10.10.10.215
+Auto Negotiation - supported, enabled
+Physical media capabilities:
+    1000baseT(FD)
+    1000baseT(HD)
+    100base-TX(FD)
+    100base-TX(HD)
+    10base-T(FD)
+    10base-T(HD)
+Media Attachment Unit type: 30
+Vlan ID: 1
+Peer Source MAC: ddee.aabb.fddd
+
+------------------------------------------------
+Local Intf: Gi1/0/9
+Local Intf service instance: -
+Chassis id: acbc.2dee.bc48
+Port id: ff-aa-2d-ee-bc-aa
+Port Description: eth0
+System Name: SRG-A12
+
+System Description:
+SRG-A12
+
+Time remaining: 73 seconds
+System Capabilities: B,W,R,S
+Enabled Capabilities: S
+Management Addresses:
+    IP: 10.10.10.124
+    IPV6: FE80::4AB0:1234:FEDD:AABB
+Auto Negotiation - supported, enabled
+Physical media capabilities:
+    1000baseT(FD)
+    Asym Pause(FD)
+    Pause(FD)
+    100base-TX(FD)
+    100base-TX(HD)
+    10base-T(FD)
+    10base-T(HD)
+Media Attachment Unit type: 30
+Vlan ID: - not advertised
+Peer Source MAC: acbc.2dee.bc41
+UPOE/UPOE+ Power-via-MDI TLV:
+ Power Pair: Ignore
+ Power Class: Class 5,Class 5
+ Power Device Type: Type 4 PSE
+ Power Source: PSE
+ Power Priority: high
+ Power Requested: 71300 mW
+ Power Allocated: 25500 mW
+
+------------------------------------------------
+Local Intf: Gi1/0/1
+Local Intf service instance: -
+Chassis id: acbc.6826.7311
+Port id: acbc.6826.7346
+Port Description: eth0
+System Name: 618-tp
+
+System Description:
+ Linux 4.9.227-perf #1 SMP PREEMPT Tue May 13 11:37:50 EDT 2025 armv8l
+
+Time remaining: 114 seconds
+System Capabilities: B,W,R,S
+Enabled Capabilities: S
+Management Addresses:
+    IP: 10.10.10.162
+Auto Negotiation - supported, enabled
+Physical media capabilities:
+    Asym Pause(FD)
+    Pause(FD)
+    100base-TX(FD)
+    100base-TX(HD)
+    10base-T(FD)
+    10base-T(HD)
+Media Attachment Unit type: 16
+Vlan ID: - not advertised
+Peer Source MAC: acbc.6826.7343
+PoE+ Power-via-MDI TLV:
+ Power Pair: Signal
+ Power Class: Class 4
+ Power Device Type: Type 2 PD
+ Power Source: PSE
+ Power Priority: high
+ Power Requested: 13000 mW
+ Power Allocated: 13000 mW
+
+------------------------------------------------
+Local Intf: Gi1/1/1
+Local Intf service instance: -
+Chassis id: acbc.682e.23df
+Port id: acbc.682e.23df
+Port Description: eth0
+System Name: 618-sw.av.domain.au
+
+System Description:
+The Cm Distribution v2016.12 Linux 4.19.94-gbe5389fd85 #1 PREEMPT Sat Feb 10 18:59:02 UTC 2024 armv7l
+
+Time remaining: 49 seconds
+System Capabilities: B,W,R,S
+Enabled Capabilities: S
+Management Addresses:
+    IP: 10.10.10.184
+Auto Negotiation - supported, enabled
+Physical media capabilities:
+    1000baseT(FD)
+    1000baseT(HD)
+    100base-TX(FD)
+    100base-TX(HD)
+    10base-T(FD)
+    10base-T(HD)
+Media Attachment Unit type: 30
+Vlan ID: - not advertised
+Peer Source MAC: acbc.682e.21df
+
+
+Total entries displayed: 4

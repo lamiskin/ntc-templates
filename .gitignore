@@ -308,3 +308,10 @@ invoke.yml
 docs/README.md
 docs/CHANGELOG.md
 public
+
+# Local development / testing (not for upstream)
+local/
+tests_local/
+upstream/
+uv.lock
+latest.json

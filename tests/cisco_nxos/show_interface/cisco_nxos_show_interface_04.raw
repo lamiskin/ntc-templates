@@ -1,0 +1,25 @@
+mti4 is up
+    MTU 1500 bytes, BW 1000000 Kbit
+    Encapsulation GRE
+    Transport protocol is in VRF "EXPERIMENTAL"
+    Tunnel source  172.10.10.10
+    Tunnel destination  239.223.0.11
+    Last link flapped 37w1d
+    Last clearing of "show interface" counters never
+    Load-Interval is 5 minute (300 seconds)
+    RX
+      0 unicast packets  0 multicast packets
+      0 bytes  0 bits/sec  0 packets/sec
+    TX
+      0 unicast packets  0 multicast packets
+      0 bytes  0 bits/sec  0 packets/sec
+pw100001 is up
+  Hardware: Pseudowire
+  MTU 1500 bytes
+  Encapsulation mpls
+  Auto-mdix is turned off
+  Peer IP 172.10.10.205, VC ID 99998
+  RX
+    Total: 5513994844197 pkts, 7599250370546978 bytes
+  TX
+    Total: 4879684159436 pkts, 6733470461071918 bytes

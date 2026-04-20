@@ -1,0 +1,19 @@
+Switch/Stack Mac Address : c800.aabb.ccdd - Local Mac Address
+Mac persistency wait time: Indefinite
+                                             H/W   Current
+Switch#   Role    Mac Address     Priority Version  State
+------------------------------------------------------------
+*1       Active   c800.aabb.ccdd     10     V06     Ready
+ 2       Member   0000.0000.0000     0      V06     Ready
+ 3       Member   f0b2.aabb.ccdd     1      V06     Ready
+ 4       Standby  3820.aabb.ccdd     1      V06     HA sync in progress
+
+
+
+         Stack Port Status             Neighbors
+Switch#  Port 1     Port 2           Port 1   Port 2
+--------------------------------------------------------
+  1         OK         OK               2        4
+  2       DOWN       DOWN             None     None
+  3         OK         OK               4        2
+  4         OK         OK               1        3

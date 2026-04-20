@@ -13,6 +13,7 @@ parsed_sample:
     neighbor_name: "Foo-BAR-TSC-101-G3"
     neighbor_port_id: "0061.75f5.b5ff"
     platform: ""
+    power_allocated: ""
     power_class: ""
     power_device_type: ""
     power_pair: ""

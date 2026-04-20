@@ -1,0 +1,60 @@
+VRF BUILDING (VRF Id = 2); default RD 172.21.12.21:104; default VPNID <not set>
+  New CLI format, supports multiple address-families
+  Flags: 0x180C
+  Interfaces:
+    Vl44                     Vl2                     Tu0
+    Tu15                    
+Address family ipv4 unicast (Table ID = 0x2):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:3211:1040           
+  Import VPN route-target communities
+    RT:3211:1040           
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (No Label)
+Address family ipv6 unicast (Table ID = 0x1E000002):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:3211:1040           
+  Import VPN route-target communities
+    RT:3211:1040           
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (No Label)
+Address family ipv4 multicast not active
+Address family ipv6 multicast not active
+
+VRF COMMERCIAL (VRF Id = 3); default RD 172.21.12.21:115; default VPNID <not set>
+  New CLI format, supports multiple address-families
+  Flags: 0x180C
+  Interfaces:
+    Tu1                      Tu16                    
+Address family ipv4 unicast (Table ID = 0x3):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:3211:1150           
+  Import VPN route-target communities
+    RT:3211:1150           
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (No Label)
+Address family ipv6 unicast (Table ID = 0x1E000003):
+  Flags: 0x0
+  Export VPN route-target communities
+    RT:3211:1150           
+  Import VPN route-target communities
+    RT:3211:1150           
+  No import route-map
+  No global export route-map
+  No export route-map
+  VRF label distribution protocol: not configured
+  VRF label allocation mode: per-vrf (No Label)
+Address family ipv4 multicast not active
+Address family ipv6 multicast not active

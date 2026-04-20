@@ -3,7 +3,7 @@ Value ROLE (\w+)
 Value MAC_ADDRESS (\S+)
 Value PRIORITY (\d+)
 Value VERSION (\S+)
-Value STATE (\w+)
+Value STATE (\w+(\s\w+)*)
 
 Start
   ^Switch/Stack
