@@ -1,7 +1,8 @@
+---
 parsed_sample:
-- interface: Tunnel1
-  link_status: up
-  admin_state: u
+- interface: "Tunnel1"
+  link_status: "up"
+  admin_state: "u"
   hardware_type: ""
   mac_address: ""
   bia: ""
@@ -16,7 +17,7 @@ parsed_sample:
   output_packets: ""
   input_errors: ""
   output_errors: ""
-  bandwidth: 9 Kbit
+  bandwidth: "9 Kbit"
   delay: ""
   encapsulation: ""
   last_link_flapped: ""
